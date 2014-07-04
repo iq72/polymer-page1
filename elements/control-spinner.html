@@ -1,0 +1,23 @@
+<link rel="import" href="../bower_components/polymer/polymer.js">
+<link rel="import" href="../bower_components/core-icon/core-icon.html">
+<link rel="import" href="../bower_components/paper-menu-button/">
+<link rel="import" href="../bower_components/core-menu/core-menu.html">
+<polymer-element name="control-spinner">
+    <template>
+
+        <span>{{currentSelection}}</span>
+        <paper-menu-button icon="expand-more">
+            <div>CHIQ TV 01</div>
+             <div>CHIQ TV 02</div>
+             <div>CHIQ TV 03</div>
+             <div>CHIQ TV 04</div>
+        </paper-menu-button>
+
+    </template>
+    <script>
+        Polymer('control-spinner',{
+            currentSelection:"CHIQ TV 01",
+
+        });
+    </script>
+</polymer-element>
