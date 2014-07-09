@@ -1,0 +1,122 @@
+<!--
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<!--
+A `paper-control-spinner` is a `paper-icon-button` that opens a drop down menu when tapped.
+
+Example:
+
+    <paper-control-spinner icon="menu">
+      <div>Menu Item 1</div>
+      <div>Menu Item 2</div>
+      <div>Menu Item 3</div>
+    </paper-control-spinner>
+
+ @group Polymer Quantum Paper Elements
+ @element paper-control-spinner
+ @extends paper-focusable
+-->
+<link href="../../bower_components/polymer/polymer.html" rel="import">
+<link href="../../bower_components/core-icon/core-icon.html" rel="import">
+<link href="../../bower_components/core-menu/core-menu.html" rel="import">
+<link href="../../bower_components/paper-focusable/paper-focusable.html" rel="import">
+<link href="../../bower_components/paper-shadow/paper-shadow.html" rel="import">
+<link href="paper-control-spinner-overlay.html" rel="import">
+<link href="paper-control-spinner-transition.html" rel="import">
+
+<polymer-element name="paper-control-spinner" extends="paper-focusable" attributes="src icon opened halign slow" on-tap="{{tapAction}}">
+  <template>
+    <link rel="stylesheet" href="paper-control-spinner.css">
+    <paper-control-spinner-overlay target="{{$.overlay}}" relatedTarget="{{}}" halign="{{halign}}" opened="{{opened}}" transition="paper-control-spinner-transition-top-{{halign}}{{slow ? '-slow' : ''}}"></paper-control-spinner-overlay>
+    <div id="overlay">
+      <paper-shadow target="{{$.overlayBg}}" z="0" hasPosition></paper-shadow>
+      <div class="paper-control-spinner-overlay-ink"></div>
+      <div id="overlayBg" class="paper-control-spinner-overlay-bg">
+      </div>
+      <core-menu id="menu" selected="0">
+        <content></content>
+
+          <div>item1</div>
+          <div>item2</div>
+          <div>item3</div>
+
+      </core-menu>
+    </div>
+    <div id="spinner">{{$.menu.selectedItem.innerText}}
+      <core-icon src="{{src}}" icon="{{icon}}"></core-icon>
+    </div>
+  </template>
+  <script>
+    Polymer('paper-control-spinner', {
+
+      publish: {
+
+        /**
+         * If true, this menu is currently visible.
+         *
+         * @attribute opened
+         * @type boolean
+         * @default false
+         */
+        opened: { value: false, reflect: true },
+
+        /**
+         * The horizontal alignment of the pulldown menu relative to the button.
+         *
+         * @attribute halign
+         * @type 'left' | 'right'
+         * @default 'left'
+         */
+        halign: { value: 'left', reflect: true }
+
+      },
+
+      /**
+       * The URL of an image for the icon.  Should not use `icon` property
+       * if you are using this property.
+       *
+       * @attribute src
+       * @type string
+       * @default ''
+       */
+      src: '',
+
+      /**
+       * Specifies the icon name or index in the set of icons available in
+       * the icon set.  Should not use `src` property if you are using this
+       * property.
+       *
+       * @attribute icon
+       * @type string
+       * @default ''
+       */
+      icon: 'expand-more',
+
+      slow: false,
+
+      tapAction: function() {
+        if (this.disabled) {
+          return;
+        }
+
+        this.super();
+        this.toggle();
+      },
+
+      /**
+       * Toggle the opened state of the menu.
+       *
+       * @method toggle
+       */
+      toggle: function() {
+        this.opened = !this.opened;
+      }
+
+    });
+  </script>
+</polymer-element>
