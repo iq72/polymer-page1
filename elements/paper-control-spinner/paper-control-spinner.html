@@ -40,14 +40,9 @@ Example:
       </div>
       <core-menu id="menu" selected="0">
         <content></content>
-
-          <div>item1</div>
-          <div>item2</div>
-          <div>item3</div>
-
       </core-menu>
     </div>
-    <div id="spinner">{{$.menu.selectedItem.innerText}}
+    <div id="spinner">{{$.menu.selectedItem.label}}
       <core-icon src="{{src}}" icon="{{icon}}"></core-icon>
     </div>
   </template>

@@ -10,12 +10,19 @@
     <link rel="import" href="../bower_components/core-icon-button/core-icon-button.html">
     <link rel="import" href="../bower_components/core-selector/core-selector.html">
     <link rel="import" href="../bower_components/core-icon/core-icon.html">
-    <link rel="import" href="../elements/paper-control-spinner/paper-control-spinner.html"
+    <link rel="import" href="../elements/paper-control-spinner/paper-control-spinner.html">
+    <link href="../../bower_components/paper-item/paper-item.html" rel="import">
+    <link href="../../bower_components/paper-shadow/paper-shadow.html" rel="import">
 </head>
 
 <body>
+  <paper-shadow></paper-shadow>
   <core-icon icon="search" size="24"></core-icon>
-  <paper-control-spinner icon="expand-more"></paper-control-spinner>
+  <paper-control-spinner icon="expand-more" halign="left">
+    <paper-item label="Menu Item 1"></paper-item>
+    <paper-item label="Menu Item 2"></paper-item>
+    <paper-item label="Menu Item 3"></paper-item>
+  </paper-control-spinner>
 
 </body>
 </html>
