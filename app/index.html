@@ -1,28 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+    <title>testPage</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
     <script src="../bower_components/platform/platform.js"></script>
     <link rel="import" href="../bower_components/core-header-panel/core-header-panel.html">
     <link rel="import" href="../bower_components/core-toolbar/core-toolbar.html">
-    <link rel="import" href="../bower_components/paper-menu-button/paper-menu-button.html">
+    <link rel="import" href="../bower_components/core-icons/core-icons.html">
+    <link rel="import" href="../bower_components/core-item/core-item.html">
     <link rel="import" href="../bower_components/paper-item/paper-item.html">
-    <link rel="import" href="../bower_components/core-icon-button/core-icon-button.html">
-    <link rel="import" href="../bower_components/core-selector/core-selector.html">
-    <link rel="import" href="../bower_components/core-icon/core-icon.html">
+    <link rel="import" href="../bower_components/core-menu-button/core-menu-button.html">
     <link rel="import" href="../elements/paper-control-spinner/paper-control-spinner.html">
-    <link href="../../bower_components/paper-item/paper-item.html" rel="import">
-    <link href="../../bower_components/paper-shadow/paper-shadow.html" rel="import">
+    <link rel="import" href="../bower_components/paper-shadow/paper-shadow.html">
+    <link rel="import" href="../bower_components/paper-menu-button/paper-menu-button.html">
 </head>
+<style>
+html,body {
+  height:100%;
+  margin:0;
+  background-color:#e5e5e5;
+  font-family:'Roboto',sans-serif;
 
+}
+
+   core-header-panel {
+
+        height: 100%;
+        overflow:auto;
+      -webkit-overflow-scrolling:touch;
+      }
+    core-toolbar {
+        color: rgb(255, 255, 255);
+        background-color: rgb(79, 125, 201);
+      }
+</style>
 <body>
-
-  <core-icon icon="search" size="24"></core-icon>
+  <paper-shadow></paper-shadow>
+<core-header-panel mode="standard" id="core-header-panel">
+  <core-toolbar id="core-toolbar">
   <paper-control-spinner icon="expand-more" halign="left">
     <paper-item label="Menu Item 1" icon="settings"></paper-item>
     <paper-item label="Menu Item 2"></paper-item>
     <paper-item label="Menu Item 3"></paper-item>
   </paper-control-spinner>
+  <core-menu-button icon="menu" halign="center" flex>
+    <core-item label="item1"></core-item>
+    <core-item label="item2"></core-item>
+    <core-item label="item3"></core-item>
+  </core-menu-button>
+  <paper-menu-button icon="more-vert" layout right halign="right">
 
+    <div>item1</div>
+    <div>item2</div>
+    <div>item3</div>
+
+  </paper-menu-button>
+
+</core-toolbar>
+  <h1>test title</h1>
+
+
+</core-header-panel>
 </body>
 </html>
